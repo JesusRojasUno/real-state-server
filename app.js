@@ -12,6 +12,7 @@ mongoose.connect(config.mongodb.URL);
 
 mongoose.connection.on('open',function(){
   console.log("Database Connection")
+  console.log("console log cualquiera")
 });
 
 
