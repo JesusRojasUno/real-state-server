@@ -1,0 +1,46 @@
+const User = require('../models/user.model').User;
+
+async function createUser (req,res){
+
+    const firstName = req.body.fin;
+    const LastName = req.body.ln;
+    const UserName = req.body.unn;
+    const Password = req.body.piss;
+
+
+
+    if (firstName && LastName && UserName && Password){
+
+        try{
+            const newUser = await new User ({
+                firstName: firstName,
+                LastName: LastName,
+                UserName: UserName,
+                Password: Password
+            }).save();
+
+            res.status(200).json({
+                message:"user created",
+                obj: newUser
+            }
+
+            )
+
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({
+                message: "user created!",
+                obj:null
+            })
+        } 
+    }else{
+        res.status(400).json({
+            message: "some parameters were missing",
+            obj:null
+        })
+    }
+
+}
+module.exports = {
+    createUser
+ }
