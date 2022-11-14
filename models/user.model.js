@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-
+//propiedades de modelo
 const UserSchema = new mongoose.Schema({
     firstName:{
         type: String,
@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     UserName:{
+        type: String,
+        required: true
+    },
+    Password:{
         type: String,
         required: true
     },
